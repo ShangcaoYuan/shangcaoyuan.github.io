@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="CSS," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="初次接触CSS的时候，被CSS巨多的知识点所打败，无所适从。尤其是作为一个小白接到一个需求时，甚至都不知道这样的人机交互我该从CSS上入手，还是用JavaScript来做。相信大家初学的时候都深有体会吧。 最近有空将自己学习CSS和项目中写CSS遇到的一些问题总结下来，算是对自己前端知识体系的一个梳理。 首先为什么是CSS：">
+<meta name="keywords" content="CSS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS学习总结(一)">
+<meta property="og:url" content="https://shangcaoyuan.github.io/2018/05/21/CSS学习总结-一/index.html">
+<meta property="og:site_name" content="Jerry.Rand&#39;s Blog">
+<meta property="og:description" content="初次接触CSS的时候，被CSS巨多的知识点所打败，无所适从。尤其是作为一个小白接到一个需求时，甚至都不知道这样的人机交互我该从CSS上入手，还是用JavaScript来做。相信大家初学的时候都深有体会吧。 最近有空将自己学习CSS和项目中写CSS遇到的一些问题总结下来，算是对自己前端知识体系的一个梳理。 首先为什么是CSS：">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://p8r3qx9d6.bkt.clouddn.com/CSS%E7%9B%92%E6%A8%A1%E5%9E%8B.png">
+<meta property="og:updated_time" content="2018-05-21T08:29:51.958Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS学习总结(一)">
+<meta name="twitter:description" content="初次接触CSS的时候，被CSS巨多的知识点所打败，无所适从。尤其是作为一个小白接到一个需求时，甚至都不知道这样的人机交互我该从CSS上入手，还是用JavaScript来做。相信大家初学的时候都深有体会吧。 最近有空将自己学习CSS和项目中写CSS遇到的一些问题总结下来，算是对自己前端知识体系的一个梳理。 首先为什么是CSS：">
+<meta name="twitter:image" content="http://p8r3qx9d6.bkt.clouddn.com/CSS%E7%9B%92%E6%A8%A1%E5%9E%8B.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://shangcaoyuan.github.io/2018/05/21/CSS学习总结-一/"/>
+
+
+
+
+
+  <title>CSS学习总结(一) | Jerry.Rand's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jerry.Rand's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Je T'Aime my life</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://shangcaoyuan.github.io/2018/05/21/CSS学习总结-一/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Shangcao Yuan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jerry.Rand's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">CSS学习总结(一)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-21T13:16:35+08:00">
+                2018-05-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CSS/" itemprop="url" rel="index">
+                    <span itemprop="name">CSS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/05/21/CSS学习总结-一/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/05/21/CSS学习总结-一/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o">本文总阅读量</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>初次接触CSS的时候，被CSS巨多的知识点所打败，无所适从。尤其是作为一个小白接到一个需求时，甚至都不知道这样的人机交互我该从CSS上入手，还是用JavaScript来做。相信大家初学的时候都深有体会吧。</p>
+<p>最近有空将自己学习CSS和项目中写CSS遇到的一些问题总结下来，算是对自己前端知识体系的一个梳理。</p>
+<h2 id="首先为什么是CSS："><a href="#首先为什么是CSS：" class="headerlink" title="首先为什么是CSS："></a>首先为什么是CSS：</h2><a id="more"></a>
+<blockquote>
+<p><a href="https://zh.wikipedia.org/wiki/%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8" target="_blank" rel="noopener">wiki的定义</a></p>
+<p><a href="https://baike.baidu.com/item/CSS/5457" target="_blank" rel="noopener">百度百科的定义</a></p>
+<p>简单来说就是随着早期HTML语言的发展，为了避免应用场景越来越复杂所导致的HTML臃肿繁琐，而发展出了CSS。最终达到：</p>
+<blockquote>
+<p>HTML定义结构，CSS关注样式展现</p>
+</blockquote>
+</blockquote>
+<h2 id="基础知识："><a href="#基础知识：" class="headerlink" title="基础知识："></a>基础知识：</h2><h3 id="1-CSS标准盒模型-W3C盒模型"><a href="#1-CSS标准盒模型-W3C盒模型" class="headerlink" title="1. CSS标准盒模型(W3C盒模型)"></a>1. CSS标准盒模型(W3C盒模型)</h3><p>外边框边，内填充边，内容边(依次对应Margin Edge，Border Edge，Padding Edge，Content Edge)，content-area，padding-area，border-area，margin-area</p>
+<p><img src="http://p8r3qx9d6.bkt.clouddn.com/CSS%E7%9B%92%E6%A8%A1%E5%9E%8B.png" alt=""></p>
+<h3 id="2-box-sizing-CSS3属性"><a href="#2-box-sizing-CSS3属性" class="headerlink" title="2. box-sizing (CSS3属性)"></a>2. box-sizing (CSS3属性)</h3><p>自己在项目中遇到了莫名其妙出现 <code>scrollbar</code> 的情况，找了很久不知道什么原因，最终在 <code>chrome开发者工具</code> 中发现浏览器存在默认设置</p>
+<pre><code>body {
+    display: block;
+    margin: 8px;
+}
+</code></pre><p>然后发现div当中子元素总是超出父元素的宽和高导致出现 scrollbar，原来是与 <code>box-sizing</code> 有关，那么什么是box-sizing呢？</p>
+<blockquote>
+<p>box-sizing的作用就是告诉浏览器 <code>width</code> 和 <code>height</code> 用于设置哪一种 box 尺寸。可细分为：</p>
+<blockquote>
+<ul>
+<li>content-box = content-area <code>W3C模型</code>默认值</li>
+<li>padding-box = content-area + padding-area <code>firefox支持</code></li>
+<li>border-box = content-area + padding-area + border-area <code>IE模型</code></li>
+<li>margin-box = content-area + padding-area + border-area + margin-area</li>
+</ul>
+</blockquote>
+</blockquote>
+<p>通过查文档了解到chrome默认采用 <code>content-box(W3C模型)</code> 当我们设置了 padding 样式时，就很容易导致子元素的 height 和 width 超出父元素的范围导致出现 scroolbar ，这样的开发体验只能说非常的不友好了。那么这个时候就推荐使用 <code>border-box(IE模型)</code> 了。</p>
+<p>但是为了强化浏览器的一致性，在项目中写CSS个人建议采用如下写法规避：</p>
+<pre><code>html {
+    box-sizing: border-box;
+}
+*, *::before, *::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+    position: relative; //absolute相对于最近的非 `static` 祖先元素定位
+}
+</code></pre><p>这样所有的元素除掉了浏览器默认的 margin、padding、box-sizing。而在特定的元素中大家可以使用<a href="#CSS权重"><strong>权重</strong></a>更高的CSS样式选择器去定义。</p>
+<p>还有个<code>巨坑</code>那就是设置 <code>div {heiht: 100%;}</code> 的样式问题，我们会发现往往设置没有作用！这是为什么呢，你需要理解浏览器是如何计算高度和宽度的：</p>
+<blockquote>
+<p>Web浏览器在计算有效宽度时会考虑浏览器窗口的打开宽度。如果你不给宽度设定任何缺省值，那浏览器会自动将页面内容平铺填满整个横向宽度。<br>但是高度的计算方式完全不一样。事实上，浏览器根本就不计算内容的高度，除非内容超出了视窗范围(导致滚动条出现)。或者你给整个页面设置一个绝对高度。否则，浏览器就会简单的让内容往下堆砌，页面的高度根本就无需考虑。<br>因为页面并没有缺省的高度值，所以，当你让一个元素的高度设定为百分比高度时，无法根据获取父元素的高度，也就无法计算自己的高度。换句话说，父元素的高度只是一个缺省值：height: auto;。当你要求浏览器根据这样一个缺省值来计算百分比高度时，只能得到undefined的结果。也就是一个null值，浏览器不会对这个值有任何的反应。</p>
+</blockquote>
+<p>所以当你写完CSS发现样式很诡异，不是你期望的结果，相信大家心里都会默念一句MMP，都是被浏览器的默认样式给坑了呀！！！</p>
+<h3 id="3-元素的分类"><a href="#3-元素的分类" class="headerlink" title="3. 元素的分类"></a>3. 元素的分类</h3><ul>
+<li>块级元素display: block、table、flex、grid、list-item<ul>
+<li>独占一行显示</li>
+<li>可以设置尺寸相关属性(width、padding、margin、border)</li>
+</ul>
+</li>
+<li>行内元素display: inline<ul>
+<li>可在同一行内排列，默认从左到右排序</li>
+<li>不可置换行内元素(img、object、video和embed等) -&gt; 不可设置width、height和垂直方向的margin</li>
+<li>可置换行内元素(a和span等) -&gt; 可以设置width、height和垂直方向的margin</li>
+<li>水平和垂直方向上的对齐方式，行内元素分别受父元素的text-align属性和自身的vertical-align属性控制，水平方向上默认左对齐</li>
+</ul>
+</li>
+<li>行内块级元素display: inline-block、inline-table、inline-flex、inline-grid<ul>
+<li>排列方式与行内元素相同，不独占一行，按从左到右排序</li>
+<li>水平和垂直方向上的对齐方式与行内元素同</li>
+<li>和块级元素一样，可以设置任何尺寸属性(width默认0)</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-格式化上下文-Formatting-Context"><a href="#4-格式化上下文-Formatting-Context" class="headerlink" title="4. 格式化上下文(Formatting Context)"></a>4. 格式化上下文(Formatting Context)</h3><blockquote>
+<p>格式化上下文，它指的是具有某种CSS格式化规则（布局规则）的上下文环境，在这个上下文环境内的所有子元素，都将根据其特定的CSS格式化规则来进行排列。</p>
+<p>常见的格式化上下文有BFC（CSS2.1 规范）、IFC（CSS2.1 规范）、 FFC（CSS3规范新增）和GFC（CSS3规范新增）</p>
+</blockquote>
+<h4 id="BFC-block-formatting-context"><a href="#BFC-block-formatting-context" class="headerlink" title="BFC(block formatting context)"></a>BFC(block formatting context)</h4><blockquote>
+<p>一个独立封闭的渲染区域,在这个区域内的块级元素 ，按从上到下的顺序显示，相邻的块级元素可以使用margin隔离，但在<code>垂直方向上相邻的块级元素会发生margin合并</code></p>
+<blockquote>
+<ul>
+<li>对应一个独立、封闭的渲染区域，子元素的CSS样式不会影响BFC元素外部</li>
+<li>浮动子元素参与BFC父元素的高度计算，也就是BFC元素能够识别浮动元素（解决父元素塌陷）</li>
+<li>占据文档流的BFC元素（可使用overflow: auto创建），能够识别浮动的兄弟元素</li>
+<li>占据文档流的BFC元素（可使用overflow: auto创建），width为auto时，会占满当前行的剩余宽度</li>
+</ul>
+</blockquote>
+</blockquote>
+<h3 id="5-前端布局方案主要有三种："><a href="#5-前端布局方案主要有三种：" class="headerlink" title="5. 前端布局方案主要有三种："></a>5. 前端布局方案主要有三种：</h3><ul>
+<li>传统布局方案(借助浮动、定位等手段)</li>
+<li>flex布局方案</li>
+<li>grid布局方案</li>
+</ul>
+<p>传统布局方案：基础源于CSS2，浏览器兼容性最好，但实现复杂度高，学习成本大<br>flex布局方案：学习成本低，简化布局复杂度，&gt;=IE10<br>grid布局方案：微软提出</p>
+<h4 id="定位-position"><a href="#定位-position" class="headerlink" title="定位(position)"></a>定位(position)</h4><p>工作后第一次当面试官的体验，深感前端圈面试css的position能刷掉一半人，其中甚至不乏很多3、4年工作经验的人这个梗不是空穴来风的。</p>
+<blockquote>
+<p>position属性的取值有:</p>
+<blockquote>
+<ul>
+<li>static（默认值）静态定位：无法设置top、right、bottom和left这四个偏移属性</li>
+<li>relative 相对定位：相对元素在文档流原来的位置</li>
+<li>absolute 绝对定位：离元素最近的一个非static（包含relative、absolute和fixed）定位祖先元素</li>
+<li>fixed 固定定位：相对当前的视窗（viewport）</li>
+</ul>
+</blockquote>
+</blockquote>
+<h4 id="flex布局"><a href="#flex布局" class="headerlink" title="flex布局"></a>flex布局</h4><h4 id="grid布局"><a href="#grid布局" class="headerlink" title="grid布局"></a>grid布局</h4><h3 id="6-CSS权重"><a href="#6-CSS权重" class="headerlink" title="6. CSS权重"></a>6. CSS权重</h3><p>说了这么多基础知识，那么最重要的需要搞懂的是CSS样式的优先级问题，做项目的时候会遇到不同地方对元素定义不同的CSS样式的问题，那么搞懂浏览器渲染CSS的优先级就很重要了</p>
+<blockquote>
+<p>同一个HTML元素被定义了多个CSS样式(通过class选择器、id选择器、行内样式等定义)时，css样式的优先渲染依赖CSS权重判断</p>
+</blockquote>
+<p>权重的五个等级：</p>
+<ul>
+<li>!important</li>
+<li>行内样式</li>
+<li>id选择器，权重100</li>
+<li>class选择器、属性选择器和伪类选择器，权重10</li>
+<li>HTML标签选择器和伪元素选择器，权重1</li>
+</ul>
+<p>权重之间的关系：</p>
+<ul>
+<li>!important &gt; 行内样式 &gt; id选择器 &gt; 类选择器 | 属性选择器 | 伪类选择器 &gt; 元素选择器</li>
+<li>权重大的选择器覆盖权重小的选择器css样式规则</li>
+<li>同等权重大小的选择器，以最后规定的选择器为准</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CSS/" rel="tag"># CSS</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/13/我的第一篇博客/" rel="next" title="我的第一篇博客">
+                <i class="fa fa-chevron-left"></i> 我的第一篇博客
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Shangcao Yuan</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#首先为什么是CSS："><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x9996;&#x5148;&#x4E3A;&#x4EC0;&#x4E48;&#x662F;CSS&#xFF1A;" class="headerlink" title="&#x9996;&#x5148;&#x4E3A;&#x4EC0;&#x4E48;&#x662F;CSS&#xFF1A;"></a>&#x9996;&#x5148;&#x4E3A;&#x4EC0;&#x4E48;&#x662F;CSS&#xFF1A;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基础知识："><span class="nav-number">2.</span> <span class="nav-text"><a href="#&#x57FA;&#x7840;&#x77E5;&#x8BC6;&#xFF1A;" class="headerlink" title="&#x57FA;&#x7840;&#x77E5;&#x8BC6;&#xFF1A;"></a>&#x57FA;&#x7840;&#x77E5;&#x8BC6;&#xFF1A;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-CSS标准盒模型-W3C盒模型"><span class="nav-number">2.1.</span> <span class="nav-text"><a href="#1-CSS&#x6807;&#x51C6;&#x76D2;&#x6A21;&#x578B;-W3C&#x76D2;&#x6A21;&#x578B;" class="headerlink" title="1. CSS&#x6807;&#x51C6;&#x76D2;&#x6A21;&#x578B;(W3C&#x76D2;&#x6A21;&#x578B;)"></a>1. CSS&#x6807;&#x51C6;&#x76D2;&#x6A21;&#x578B;(W3C&#x76D2;&#x6A21;&#x578B;)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-box-sizing-CSS3属性"><span class="nav-number">2.2.</span> <span class="nav-text"><a href="#2-box-sizing-CSS3&#x5C5E;&#x6027;" class="headerlink" title="2. box-sizing (CSS3&#x5C5E;&#x6027;)"></a>2. box-sizing (CSS3&#x5C5E;&#x6027;)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-元素的分类"><span class="nav-number">2.3.</span> <span class="nav-text"><a href="#3-&#x5143;&#x7D20;&#x7684;&#x5206;&#x7C7B;" class="headerlink" title="3. &#x5143;&#x7D20;&#x7684;&#x5206;&#x7C7B;"></a>3. &#x5143;&#x7D20;&#x7684;&#x5206;&#x7C7B;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-格式化上下文-Formatting-Context"><span class="nav-number">2.4.</span> <span class="nav-text"><a href="#4-&#x683C;&#x5F0F;&#x5316;&#x4E0A;&#x4E0B;&#x6587;-Formatting-Context" class="headerlink" title="4. &#x683C;&#x5F0F;&#x5316;&#x4E0A;&#x4E0B;&#x6587;(Formatting Context)"></a>4. &#x683C;&#x5F0F;&#x5316;&#x4E0A;&#x4E0B;&#x6587;(Formatting Context)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#BFC-block-formatting-context"><span class="nav-number">2.4.1.</span> <span class="nav-text"><a href="#BFC-block-formatting-context" class="headerlink" title="BFC(block formatting context)"></a>BFC(block formatting context)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-前端布局方案主要有三种："><span class="nav-number">2.5.</span> <span class="nav-text"><a href="#5-&#x524D;&#x7AEF;&#x5E03;&#x5C40;&#x65B9;&#x6848;&#x4E3B;&#x8981;&#x6709;&#x4E09;&#x79CD;&#xFF1A;" class="headerlink" title="5. &#x524D;&#x7AEF;&#x5E03;&#x5C40;&#x65B9;&#x6848;&#x4E3B;&#x8981;&#x6709;&#x4E09;&#x79CD;&#xFF1A;"></a>5. &#x524D;&#x7AEF;&#x5E03;&#x5C40;&#x65B9;&#x6848;&#x4E3B;&#x8981;&#x6709;&#x4E09;&#x79CD;&#xFF1A;</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定位-position"><span class="nav-number">2.5.1.</span> <span class="nav-text"><a href="#&#x5B9A;&#x4F4D;-position" class="headerlink" title="&#x5B9A;&#x4F4D;(position)"></a>&#x5B9A;&#x4F4D;(position)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#flex布局"><span class="nav-number">2.5.2.</span> <span class="nav-text"><a href="#flex&#x5E03;&#x5C40;" class="headerlink" title="flex&#x5E03;&#x5C40;"></a>flex&#x5E03;&#x5C40;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#grid布局"><span class="nav-number">2.5.3.</span> <span class="nav-text"><a href="#grid&#x5E03;&#x5C40;" class="headerlink" title="grid&#x5E03;&#x5C40;"></a>grid&#x5E03;&#x5C40;</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-CSS权重"><span class="nav-number">2.6.</span> <span class="nav-text"><a href="#6-CSS&#x6743;&#x91CD;" class="headerlink" title="6. CSS&#x6743;&#x91CD;"></a>6. CSS&#x6743;&#x91CD;</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">true</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user">本站访客数</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye">本站总访问量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://shangcaoyuan.github.io/2018/05/21/CSS学习总结-一/';
+          this.page.identifier = '2018/05/21/CSS学习总结-一/';
+          this.page.title = 'CSS学习总结(一)';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: '30063514',
+            repo: 'shangcaoyuan.github.io',
+            
+            lang: "en" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '3995ca0ad0123a1aa4bf25bfabcbef52b0c2e098',
+            
+                client_id: '4b27a1aae79244f2384d'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
